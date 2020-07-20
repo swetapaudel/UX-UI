@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel ="stylesheet" href="fedex_css.css" media="all" />
+
+<style>
+.alertv {
+    margin-left: 25%;
+    width: 50%;
+    padding: 30px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 30px;
+  }
+  
+  .alert.info {background-color: #2196F3; margin-left: 25%;}
+  .alert.warning {background-color: #ff9800; margin-left: 25%;}
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+  </style>
+
+<div class="top"> 
+
+    <div class="header"> 
+                
+    <img src="logo.png" alt="logo" /> 
+    <br>
+    <br>
+    <br>
+    <h1 style="font-size: 18px; text-align: left;">Welcome to FedEx alert management dashboard </h1>
+    </div> 
+    <div class="navbar">
+      <a href="#home">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">View Alerts(3)
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Volume</a>
+          <a href="#">Timing</a>
+          <a href="#">Staff</a>
+          <a href="#">Environmental</a>
+        </div>
+      </div> 
+
+      <div class="dropdown">
+        <button class="dropbtn">View History
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Current Week</a>
+          <a href="#">Current Month</a>
+          <a href="#">Search by Date</a>
+        </div>
+      </div> 
+
+      <a href="#news">Inlocation Indicator</a>
+      <a href="#news">Logout</a>
+    </div>           
+    </div> 
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+</head>
+
+
+<body>
+        <div class="alertv">
+          <span class="closebtn">&times;</span>  
+          <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+        </div>
+        
+        <div class="alert info">
+          <span class="closebtn">&times;</span>  
+          <strong>Info!</strong> Indicates a neutral informative change or action.
+        </div>
+        
+        <div class="alert warning">
+          <span class="closebtn">&times;</span>  
+          <strong>Warning!</strong> Indicates a warning that might need attention.
+        </div>
+        <br> <br> <br> <br>
+        
+        <script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+        </script>
+
+    <div class="footer">
+        <p>@ FedEx 1995-2019</p>
+        <p>Site Map   |   Terms of Use    |   Privacy & Security</p>
+    </div>
+
+
+</body>
+</html>

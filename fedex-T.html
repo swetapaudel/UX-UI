@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel ="stylesheet" href="CSS.css" media="all" />
+
+<div class="top"> 
+
+    <div class="header"> 
+                
+    <img src="logo.png" alt="logo" /> 
+    <br>
+    <br>
+    <br>
+    </div> 
+    <div class="navbar">
+      <a href="http://pluto.cse.msstate.edu/~sg2000/fedex/fedex.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">View Alerts(3)
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="http://pluto.cse.msstate.edu/~sg2000/fedex/fedex-V.html">Volume</a>
+          <a href="http://pluto.cse.msstate.edu/~sg2000/fedex/fedex-T.html">Timing</a>
+          <a href="http://pluto.cse.msstate.edu/~sg2000/fedex/fedex-S.html">Staff</a>
+          <a href="http://pluto.cse.msstate.edu/~sg2000/fedex/fedex-E.html">Environmental</a>
+        </div>
+      </div> 
+      <a href="http://pluto.cse.msstate.edu/~sg2000/fedex/history_week.html">View History</a>
+      <a href="#news">Logout</a>
+    </div>           
+    </div> 
+    <br> <br> <br> <br> <br> <br> <br> 
+
+</head>
+
+
+<body>
+
+
+  
+    
+        <div class="alert">
+         <span class="dot" style="font-size: 200%;"> <img src="timing.png" style="width:5%; height:5%;" alt="caution" /></span>
+          <span class="open-button" onclick="openFormm()">View</span>
+          <div class="chat-popupp" id="myFormm">
+            <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+              <h1>View Detail</h1>
+              <div id="map" style="width:100%;height:400px;"> </div>        
+              <script>
+                var map;
+                function initMap() {
+                  map = new google.maps.Map(
+                      document.getElementById('map'),
+                      {center: new google.maps.LatLng(29.6733001, -95.4398826), zoom: 10});
+          
+                  var iconBase =
+                      'http://maps.google.com/mapfiles/kml/shapes/';
+                    
+                  var warningBase = 
+                        'http://maps.google.com/mapfiles/kml/pal3/';
+          
+                  var greenBase = 
+                        'http://maps.google.com/mapfiles/kml/pal2/';
+          
+          
+          
+                  var icons = {
+                    parking: {
+                      icon: iconBase + 'caution.png'
+                    },
+                    library: {
+                      icon: warningBase + 'icon45.png'
+                    },
+                    info: {
+                      icon: greenBase + 'icon5.png'
+                    },
+                    env: {
+                      icon: 'environmental.png'
+                    },
+                    truck: {
+                      icon:  "truck.png"
+                    },
+
+                      env: {
+                        icon: 'environmental.png'
+
+                    },
+                    env: {
+                      icon: 'environmental.png'
+
+                  },
+
+                    staff: {
+                      icon: 'staff.png'
+                    },
+                    timing: {
+                      icon: 'timing.png'
+
+                    }
+                  };
+          
+                  var features = [
+
+                    {
+                      position: new google.maps.LatLng(29.6245936, -95.3207069),
+                      type: 'env'
+                    },
+
+
+
+                    {
+                      position: new google.maps.LatLng(29.6868221, -95.7339313),
+                      type: 'env'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.9294946, -95.2034905),
+                      type: 'env'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.7056708, -95.7040947),
+                      type: 'truck'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.6555693, -95.5516332),
+                      type: 'staff'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.8545056, -95.4671299),
+                      type: 'timing'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.7451899, -95.3389082),
+                      type: 'timing'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.9403803, -95.4646022),
+                      type: 'timing'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.5993284, -95.6174794),
+                      type: 'truck'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.8657387, -954804344),
+                      type: 'truck'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.7559698, -95.3573194),
+                      type: 'info'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.7426660, -95.3090252),
+                      type: 'library'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.7329699, -95.4170316),
+                      type: 'library'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.6733001,-95.4398826),
+                      type: 'info'
+                    },
+                     {
+                      position: new google.maps.LatLng(-33.91662347903106, 151.22879464019775),
+                      type: 'parking'
+                    },
+                    {
+                      position: new google.maps.LatLng(-33.916365282092855, 151.22937399734496),
+                      type: 'parking'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.7336043, -95.3706340),
+                      type: 'parking'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.6059504, -95.2052423),
+                      type: 'parking'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.9352938, -95.4119800),
+                      type: 'parking'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.6733001,-95.4398826),
+                      type: 'parking'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.3256002, -95.567890),
+                      type: 'parking'
+                    },
+                    {
+                      position: new google.maps.LatLng(29.6324137, -95.3873841),
+                      type: 'library'
+                    }
+                  ];
+
+                  // Create markers.
+                  for (var i = 0; i < features.length; i++) {
+                    var marker = new google.maps.Marker({
+                      position: features[i].position,
+                      icon: icons[features[i].type].icon,
+                      map: map
+                    });
+                  };
+                }
+              </script>
+              <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOc0lUrixt7Td9A0wIVMK3WqZOt4k7Dow&callback=initMap">
+              </script>
+          
+          
+            
+
+                  
+
+              
+              
+              <br> <br> 
+              <button type="button" class="btn cancel" onclick="closeFormm()">Close</button>
+            </form>
+          </div>
+          
+          <script>
+          function openFormm() {
+            document.getElementById("myFormm").style.display = "block";
+          }
+          
+          function closeFormm() {
+            document.getElementById("myFormm").style.display = "none";
+          }
+          </script>
+
+              
+
+          <span class="closebtn">Dismiss</span> 
+          <span class="open-button" onclick="openForm()">Take Action</span>
+          <div class="chat-popup" id="myForm">
+              <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+                <h1>Take Action</h1>
+                What type of alert is it?
+                <br><br>
+                <input type="radio"  name="type">Critical alert
+                
+                <input type="radio"  name="type">Error alert
+                
+                <input type="radio"  name="type">Warning alert
+                <br>
+                <br>
+
+                Select whom do you want to notify about the alert:
+                <br><br>
+                <input type="checkbox"  name="local station">Local station
+        
+                <input type="checkbox"  name="driver">Driver
+                
+                <input type="checkbox"  name="customer">Customer
+                
+                <input type="checkbox"  name="pickup">Pickup/Delivery
+                
+                <input type="checkbox"  name="ramp">Ramp
+                
+                <input type="checkbox"  name="hub">Hub
+                <br><br>
+                <label for="msg"><b>Message(optional)</b></label>
+                <textarea placeholder="Type message.." name="msg" ></textarea>
+            
+                <button onclick="alertt()" class="btn">Take action and submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+            
+            <script>
+            function alertt(){
+              alert("Updated successfully!");
+            }
+
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script>
+
+
+          <strong>Danger!</strong> Flight-SSSS is late.
+        </div>
+
+        <div class="alert">
+          <span class="dot" style="font-size: 200%;"> <img src="timing.png" style="width:5%; height:5%;" alt="caution" /></span>
+          <span class="open-button" onclick="openFormm()">View</span>
+          <div class="chat-popupp" id="myFormm">
+            <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+              <h1>View Detail</h1>
+              <br> <br> <br> <br>
+              This part will show the detail of the alert...
+              <br> <br> <br> <br>
+              <button type="button" class="btn cancel" onclick="closeFormm()">Close</button>
+            </form>
+          </div>
+          
+          <script>
+          function openFormm() {
+            document.getElementById("myFormm").style.display = "block";
+          }
+          
+          function closeFormm() {
+            document.getElementById("myFormm").style.display = "none";
+          }
+          </script>
+
+              
+
+          <span class="closebtn">Dismiss</span> 
+          <span class="open-button" onclick="openForm()">Take Action</span>
+          <div class="chat-popup" id="myForm">
+              <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+                <h1>Take Action</h1>
+                What type of alert is it?
+                <br><br>
+                <input type="radio"  name="type">Critical alert
+                
+                <input type="radio"  name="type">Error alert
+                
+                <input type="radio"  name="type">Warning alert
+                <br>
+                <br>
+
+                Select whom do you want to notify about the alert:
+                <br><br>
+                <input type="checkbox"  name="local station">Local station
+        
+                <input type="checkbox"  name="driver">Driver
+                
+                <input type="checkbox"  name="customer">Customer
+                
+                <input type="checkbox"  name="pickup">Pickup/Delivery
+                
+                <input type="checkbox"  name="ramp">Ramp
+                
+                <input type="checkbox"  name="hub">Hub
+                <br><br>
+                <label for="msg"><b>Message(optional)</b></label>
+                <textarea placeholder="Type message.." name="msg" ></textarea>
+            
+                <button onclick="alertt()" class="btn">Take action and submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+            
+            <script>
+            function alertt(){
+              alert("Updated successfully!");
+            }
+
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script>
+          <strong>Danger!</strong> Truck coming from Texas is Late.
+        </div>
+
+
+        
+        <div class="alert warning">
+          <span class="dot" style="font-size: 200%;"> <img src="timing.png" style="width:5%; height:5%;" alt="caution" /></span>
+          <span class="open-button" onclick="openFormm()">View</span>
+          <div class="chat-popupp" id="myFormm">
+            <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+              <h1>View Detail</h1>
+              <br> <br> <br> <br>
+              This part will show the detail of the alert...
+              <br> <br> <br> <br>
+              <button type="button" class="btn cancel" onclick="closeFormm()">Close</button>
+            </form>
+          </div>
+          
+          <script>
+          function openFormm() {
+            document.getElementById("myFormm").style.display = "block";
+          }
+          
+          function closeFormm() {
+            document.getElementById("myFormm").style.display = "none";
+          }
+          </script>
+
+              
+
+          <span class="closebtn">Dismiss</span> 
+          <span class="open-button" onclick="openForm()">Take Action</span>
+          <div class="chat-popup" id="myForm">
+              <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+                <h1>Take Action</h1>
+                What type of alert is it?
+                <br><br>
+                <input type="radio"  name="type">Critical alert
+                
+                <input type="radio"  name="type">Error alert
+                
+                <input type="radio"  name="type">Warning alert
+                <br>
+                <br>
+
+                Select whom do you want to notify about the alert:
+                <br><br>
+                <input type="checkbox"  name="local station">Local station
+        
+                <input type="checkbox"  name="driver">Driver
+                
+                <input type="checkbox"  name="customer">Customer
+                
+                <input type="checkbox"  name="pickup">Pickup/Delivery
+                
+                <input type="checkbox"  name="ramp">Ramp
+                
+                <input type="checkbox"  name="hub">Hub
+                <br><br>
+                <label for="msg"><b>Message(optional)</b></label>
+                <textarea placeholder="Type message.." name="msg" ></textarea>
+            
+                <button onclick="alertt()" class="btn">Take action and submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+            
+            <script>
+            function alertt(){
+              alert("Updated successfully!");
+            }
+            
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script> 
+          <strong>Warning!</strong> Too many incoming packages to deliver.
+        </div>
+
+
+
+
+
+        <div class="alert warning">
+          <span class="dot" style="font-size: 200%;"> <img src="timing.png" style="width:5%; height:5%;" alt="caution" /></span>
+          <span class="open-button" onclick="openFormm()">View</span>
+          <div class="chat-popupp" id="myFormm">
+            <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+              <h1>View Detail</h1>
+              <br> <br> <br> <br>
+              This part will show the detail of the alert...
+              <br> <br> <br> <br>
+              <button type="button" class="btn cancel" onclick="closeFormm()">Close</button>
+            </form>
+          </div>
+          
+          <script>
+          function openFormm() {
+            document.getElementById("myFormm").style.display = "block";
+          }
+          
+          function closeFormm() {
+            document.getElementById("myFormm").style.display = "none";
+          }
+          </script>
+
+              
+
+          <span class="closebtn">Dismiss</span> 
+          <span class="open-button" onclick="openForm()">Take Action</span>
+          <div class="chat-popup" id="myForm">
+              <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+                <h1>Take Action</h1>
+                What type of alert is it?
+                <br><br>
+                <input type="radio"  name="type">Critical alert
+                
+                <input type="radio"  name="type">Error alert
+                
+                <input type="radio"  name="type">Warning alert
+                <br>
+                <br>
+
+                Select whom do you want to notify about the alert:
+                <br><br>
+                <input type="checkbox"  name="local station">Local station
+        
+                <input type="checkbox"  name="driver">Driver
+                
+                <input type="checkbox"  name="customer">Customer
+                
+                <input type="checkbox"  name="pickup">Pickup/Delivery
+                
+                <input type="checkbox"  name="ramp">Ramp
+                
+                <input type="checkbox"  name="hub">Hub
+                <br><br>
+                <label for="msg"><b>Message(optional)</b></label>
+                <textarea placeholder="Type message.." name="msg" ></textarea>
+            
+                <button onclick="alertt()" class="btn">Take action and submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+            
+            <script>
+            function alertt(){
+              alert("Updated successfully!");
+            }
+            
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script> 
+          <strong>Warning!</strong> 1000 Bus needed today.
+        </div>
+
+
+                
+        <div class="alert info">
+            <span class="dot" style="font-size: 200%;"> <img src="timing.png" style="width:5%; height:5%;" alt="caution" /></span>
+            <span class="open-button" onclick="openFormm()">View</span>
+          <div class="chat-popupp" id="myFormm">
+            <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+              <h1>View Detail</h1>
+              <br> <br> <br> <br>
+              This part will show the detail of the alert...
+              <br> <br> <br> <br>
+              <button type="button" class="btn cancel" onclick="closeFormm()">Close</button>
+            </form>
+          </div>
+          
+          <script>
+          function openFormm() {
+            document.getElementById("myFormm").style.display = "block";
+          }
+          
+          function closeFormm() {
+            document.getElementById("myFormm").style.display = "none";
+          }
+          </script>
+
+              
+
+          <span class="closebtn">Dismiss</span> 
+          <span class="open-button" onclick="openForm()">Take Action</span>
+          <div class="chat-popup" id="myForm">
+              <form action="http://pluto.cse.msstate.edu/~sg2000/fedex/homepage.html" class="form-container">
+                <h1>Take Action</h1>
+                What type of alert is it?
+                <br><br>
+                <input type="radio"  name="type">Critical alert
+                
+                <input type="radio"  name="type">Error alert
+                
+                <input type="radio"  name="type">Warning alert
+                <br>
+                <br>
+
+                Select whom do you want to notify about the alert:
+                <br><br>
+                <input type="checkbox"  name="local station">Local station
+        
+                <input type="checkbox"  name="driver">Driver
+                
+                <input type="checkbox"  name="customer">Customer
+                
+                <input type="checkbox"  name="pickup">Pickup/Delivery
+                
+                <input type="checkbox"  name="ramp">Ramp
+                
+                <input type="checkbox"  name="hub">Hub
+                <br><br>
+                <label for="msg"><b>Message(optional)</b></label>
+                <textarea placeholder="Type message.." name="msg" ></textarea>
+            
+                <button class="btn">Take action and submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+            
+            <script>
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script>
+            <strong>Info!</strong> Alert!!
+        </div>
+        <br> <br> <br> <br>
+        
+        <script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+        </script>
+
+</body>
+</html>

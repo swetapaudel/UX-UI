@@ -1,0 +1,277 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+  }
+  
+  .content {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    padding: 2px;
+  }
+  
+  .top {
+    position: fixed;
+    top: 0;
+    background: #472F91;
+    color: #f1f1f1;
+    width: 100%;
+    height: 16vh;
+    padding: 0px;
+  }
+
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
+  
+  .header img { 
+  
+  float: left; 
+  
+  width: 150px; 
+  
+  height: auto; 
+  
+  }
+  
+  .navbar {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #F57921;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #472f91;
+    color: #fff;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .alert {
+    float: left;
+    width: 60%;
+    padding: 10px;
+    height: 1%;
+    margin-left: 2%;
+    border-radius: 50px;
+    box-shadow: 0 9px #999;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+    background-color: #D71D1D;
+    color: black;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 50px;
+  }
+
+  .alert:hover {
+  }
+  
+  .alert.info {background-color: #004C99;}
+  .alert.warning {background-color: #FF8000;}
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .closebtn:hover {
+    color: black;
+  }
+
+  .open-button:hover {
+    color: black;
+  }
+
+.dot{
+  height: 50px;
+  width: 50px;
+  background-color: rgb(245, 245, 241);
+  border-radius: 100%;
+}
+
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/* for take action */
+.open-button {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+display: none;
+position: fixed;
+bottom: 0;
+left: 25%;
+border: 3px solid #f1f1f1;
+z-index: 12;
+}
+
+.chat-popupp {
+  display: none;
+  position: fixed;
+  width: 50%;
+  height:50%;
+  top:0%; 
+  left: 26%;
+  border: 3px solid #f1f1f1;
+  z-index: 12;
+  }
+
+/* Add styles to the form container */
+.form-container {
+max-width: 600px;
+padding: 10px;
+background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+border: none;
+background: #f1f1f1;
+resize: none;
+min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+background-color: #ddd;
+outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom:10px;
+opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+opacity: 1;
+}
+
+  
